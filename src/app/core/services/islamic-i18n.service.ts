@@ -21,7 +21,7 @@ const ARMONTHS = [
   'ذو الحجة'
 ];
 const ENMONTHS = ['Moharram', 'Safar', 'Rabi al-Awwal', 'Rabi al-Thani', 'Jumādá al-Ūlá',
-'Jumādá al-Ākhirah', 'Rajab', 'Shabaan', 'Ramadan', 'Shawwal', 'Dhū al-Qa‘dah', 'Dhū al-Ḥijjah'];
+  'Jumādá al-Ākhirah', 'Rajab', 'Shabaan', 'Ramadan', 'Shawwal', 'Dhū al-Qa‘dah', 'Dhū al-Ḥijjah'];
 
 @Injectable({
   providedIn: 'root'
@@ -33,21 +33,21 @@ export class IslamicI18nService extends NgbDatepickerI18n {
   ) {
     super();
   }
-  getWeekdayShortName(weekday: number) {
+  getWeekdayShortName(weekday: number): string {
     return this.translate.currentLang === 'ar' ?
       ARWEEKDAYS[weekday - 1] :
       ENWEEKDAYS[weekday - 1];
 
   }
 
-  getMonthShortName(month: number) {
+  getMonthShortName(month: number): string {
     return this.translate.currentLang === 'ar' ?
       ARMONTHS[month - 1] :
       ENMONTHS[month - 1];
 
   }
 
-  getMonthFullName(month: number) {
+  getMonthFullName(month: number): string {
     return this.translate.currentLang === 'ar' ?
       ARMONTHS[month - 1] :
       ENMONTHS[month - 1];
