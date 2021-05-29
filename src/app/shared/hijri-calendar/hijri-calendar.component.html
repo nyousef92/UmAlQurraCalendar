@@ -1,0 +1,23 @@
+<div class="m-5">
+<label>
+  use this if you're using angular material anf give it the calsses if needed
+</label>
+<mat-form-field class="w-100">
+  <mat-label> {{label | translate}}</mat-label>
+  <input matInput readonly ngbDatepicker required name="dp" #d="ngbDatepicker" (dateSelect)="onDateSelect($event)"
+    (click)="d.toggle()" [(ngModel)]="model" [maxDate]="maxDate" [minDate]="minDate" container="body" minlength="10"
+    maxlength="10">
+  <mat-datepicker-toggle matSuffix (click)="d.toggle()"></mat-datepicker-toggle>
+  <mat-error>
+    {{'required' |translate}}
+  </mat-error>
+</mat-form-field>
+<br>
+<label>
+  use this if you're not using angular material anf give it the calsses you're using for your othr fields
+</label>
+<br>
+<input readonly ngbDatepicker required name="dp" #d="ngbDatepicker" (dateSelect)="onDateSelect($event)"
+  (click)="d.toggle()" [(ngModel)]="model" [maxDate]="maxDate" [minDate]="minDate" container="body" minlength="10"
+  maxlength="10">
+</div>

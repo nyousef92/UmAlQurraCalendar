@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'unAlQurraCalendar'`, () => {
+  it(`should have as title 'umAlQurraCalendar'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('unAlQurraCalendar');
+    expect(app.title).toEqual('umAlQurraCalendar');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('unAlQurraCalendar app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('umAlQurraCalendar app is running!');
   });
 });

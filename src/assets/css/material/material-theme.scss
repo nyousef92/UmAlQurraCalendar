@@ -1,0 +1,123 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$calendar-primary-palette: (
+  50 : #f3f0e8,
+  100 : #e2d9c5,
+  200 : #cfc29f,
+  300 : #bbab78,
+  400 : #ada15b,
+  500 :#E8AB21,
+  600 : #967d38,
+  700 : #8c7330,
+  800 : #826a28,
+  900 : #705c1b,
+  A100 : #ffe9ac,
+  A200 : #ffc979,
+  A400 : #ffce46,
+  A700 : #ffc72c,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+
+$calendar-warn-palette: (
+  50 : #ffebeb,
+  100 : #ffcdcd,
+  200 : #ffacac,
+  300 : #ff8a8a,
+  400 : #ff7171,
+  500 : #ff5858,
+  600 : #ff5050,
+  700 : #ff4747,
+  800 : #ff3d3d,
+  900 : #ff2d2d,
+  A100 : #ffffff,
+  A200 : #ffffff,
+  A400 : #ffd9d9,
+  A700 : #ffbfbf,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #000000,
+    600 : #000000,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+
+$calendar-accent-palette: (
+  50 : #fcf0eb,
+  100 : #f7dacc,
+  200 : #f1c1aa,
+  300 : #eba888,
+  400 : #e7966f,
+  500 : #e3b155,
+  600 : #e07b4e,
+  700 : #dc7044,
+  800 : #d8663b,
+  900 : #d0532a,
+  A100 : #ffffff,
+  A200 : #ffe5dd,
+  A400 : #ffbdaa,
+  A700 : #ffa990,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #000000,
+    600 : #000000,
+    700 : #000000,
+    800 : #000000,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+
+$calendar-primary: mat-palette($calendar-primary-palette);
+$calendar-accent: mat-palette($calendar-accent-palette);
+$calendar-warn: mat-palette($calendar-warn-palette);
+
+$calendar-theme: mat-light-theme($calendar-primary, $calendar-accent, $calendar-warn);
+
+@include angular-material-theme($calendar-theme);
+
+$calendar-typography: mat-typography-config(
+  $font-family: 'SFProDisplay, Cairo, sans-serif'
+);
+
+@include angular-material-typography($calendar-typography);
+
+.mat-icon-button {
+  border: none !important;
+}
