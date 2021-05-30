@@ -24,13 +24,13 @@ export class HijriCalendarComponent implements OnInit, OnChanges {
   @Input() label: string;
   // when you want to set the max date using a static differance values from today
   // exaple : max age 18 years exxpiry date is in the next 3 days
-  @Input() maxDateDeffirance: { year: number, month: number, day: number };
+  @Input() maxDateDeffirance: { years: number, months: number, days: number };
   // when you want to set the max date using a static date
   // exaple : max date is untill 31/12/2021
   @Input() maxDate: NgbDate;
   // when you want to set the min date using a static differance values from today
   // exaple : min age 18 years issue date is in the 3 past days
-  @Input() minDateDifferance: { year: number, month: number, day: number };
+  @Input() minDateDifferance: { years: number, months: number, days: number };
   // when you want to set the max date using a static date
   // exaple : max date is not less than 31/12/2021
   @Input() minDate: NgbDate;
@@ -54,9 +54,9 @@ export class HijriCalendarComponent implements OnInit, OnChanges {
       }
     } else {
       this.maxDate = new NgbDate(
-        today.year + this.maxDateDeffirance.year,
-        today.month + this.maxDateDeffirance.month,
-        today.day + this.maxDateDeffirance.day
+        today.year + this.maxDateDeffirance.years,
+        today.month + this.maxDateDeffirance.months,
+        today.day + this.maxDateDeffirance.days
       );
     }
     if (!this.minDateDifferance) {
@@ -65,9 +65,9 @@ export class HijriCalendarComponent implements OnInit, OnChanges {
       }
     } else {
       this.minDate = new NgbDate(
-        today.year + this.minDateDifferance.year,
-        today.month + this.minDateDifferance.month,
-        today.day + this.minDateDifferance.day
+        today.year + this.minDateDifferance.years,
+        today.month + this.minDateDifferance.months,
+        today.day + this.minDateDifferance.days
       );
     }
   }

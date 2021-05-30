@@ -19,4 +19,9 @@ export class AppComponent implements OnInit {
       this.translate.use('en') :
       this.translate.use('ar');
   }
+  onDateSelect(x): void {
+    // you can bind the value with fromControl or save it in a variable
+    // here I will just log it
+    console.log(x);
+  }
 }
