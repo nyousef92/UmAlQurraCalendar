@@ -6,20 +6,20 @@
     <br>
     issue date can not be in the future
     issue date can not be before the company issue date which is 15-02-1390
-    so we pass a maxDateDeffirance of zero year , months and days
+    so we pass a maxDateDifference of zero year , months and days
     and minDate of year:1430,month:2,day:15
     <br>
     <app-hijri-calendar [label]="'issueDate'" 
-    [maxDateDeffirance]='{ years: 0, months: 0, days: 0 }'
+    [maxDateDifference]='{ years: 0, months: 0, days: 0 }'
     [minDate]='{year:1430,month:2,day:15}'
     (dateSelect)="onDateSelect($event)"
     ></app-hijri-calendar>
     <hr>
     the value of the birth date will be set when the form opens as 15-5-1430
-    age can not be under 18 so we will pass maxDateDeffirance of -18 year , 0 months and 1 day
+    age can not be under 18 so we will pass maxDateDifference of -18 year , 0 months and 1 day
     <app-hijri-calendar [label]="'birthDate'" 
     [selectedDate]="'15-5-1430'"
-    [maxDateDeffirance]='{ years: -18, months: 0, days: 1 }'
+    [maxDateDifference]='{ years: -18, months: 0, days: 1 }'
     (dateSelect)="onDateSelect($event)"
     ></app-hijri-calendar>
 </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { NgbCalendar, NgbDatepickerI18n, NgbDateAdapter, NgbDateParserFormatter, NgbCalendarIslamicUmalqura, NgbDate } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCalendar, NgbDatepickerI18n, NgbDateAdapter, NgbDateParserFormatter, NgbCalendarIslamicUmalqura, NgbDate, NgbPeriod } from '@ng-bootstrap/ng-bootstrap';
 import { IslamicI18nService } from '../../core/services/islamic-i18n.service';
 import { CustomAdapter } from '../../core/services/custom-adapter.service';
 import { CustomDateParserFormatter } from '../../core/services/custom-date-parser-formatter.service';
@@ -24,13 +24,13 @@ export class HijriCalendarComponent implements OnInit, OnChanges {
   @Input() label: string;
   // when you want to set the max date using a static differance values from today
   // exaple : max age 18 years exxpiry date is in the next 3 days
-  @Input() maxDateDeffirance: { years: number, months: number, days: number };
+  @Input() maxDateDifference: { years: number, months: number, days: number };
   // when you want to set the max date using a static date
   // exaple : max date is untill 31/12/2021
   @Input() maxDate: NgbDate;
   // when you want to set the min date using a static differance values from today
   // exaple : min age 18 years issue date is in the 3 past days
-  @Input() minDateDifferance: { years: number, months: number, days: number };
+  @Input() minDateDifference: { years: number, months: number, days: number };
   // when you want to set the max date using a static date
   // exaple : max date is not less than 31/12/2021
   @Input() minDate: NgbDate;
@@ -48,26 +48,46 @@ export class HijriCalendarComponent implements OnInit, OnChanges {
   }
   setMinAndMax(): void {
     const today = this.calendar.getToday();
-    if (!this.maxDateDeffirance) {
+    if (!this.maxDateDifference) {
       if (!this.maxDate) {
         this.maxDate = new NgbDate(1500, 12, 29);
       }
     } else {
-      this.maxDate = new NgbDate(
-        today.year + this.maxDateDeffirance.years,
-        today.month + this.maxDateDeffirance.months,
-        today.day + this.maxDateDeffirance.days
+      this.maxDate = this.calendar.getNext(
+        today,
+        'y',
+        this.maxDateDifference.years
+      );
+      this.maxDate = this.calendar.getNext(
+        today,
+        'm',
+        this.maxDateDifference.months
+      );
+      this.maxDate = this.calendar.getNext(
+        today,
+        'd',
+        this.maxDateDifference.days
       );
     }
-    if (!this.minDateDifferance) {
+    if (!this.minDateDifference) {
       if (!this.minDate) {
         this.minDate = new NgbDate(1300, 1, 1);
       }
     } else {
-      this.minDate = new NgbDate(
-        today.year + this.minDateDifferance.years,
-        today.month + this.minDateDifferance.months,
-        today.day + this.minDateDifferance.days
+      this.minDate = this.calendar.getNext(
+        today,
+        'y',
+        this.minDateDifference.years
+      );
+      this.minDate = this.calendar.getNext(
+        today,
+        'm',
+        this.minDateDifference.months
+      );
+      this.maxDate = this.calendar.getNext(
+        today,
+        'd',
+        this.minDateDifference.days
       );
     }
   }
